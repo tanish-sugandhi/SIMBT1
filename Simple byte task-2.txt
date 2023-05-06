@@ -1,0 +1,102 @@
+import java.util.Scanner;
+public class Demo {
+    public static void main(String[] args) {
+        int balance=1000,pincode=12345;
+        String transaction=" ";
+        Scanner sc=new Scanner(System.in);
+        System.out.println("*********** WELCOME To SBI ATM **********\n");
+        while(true)
+        {
+        System.out.println("press 1 for Transaction history\n");
+        System.out.println("press 2 for withdraw\n");
+        System.out.println("press 3 for Deposite\n");
+        System.out.println("press 4 for Transfer\n");
+        System.out.println("press 5 for Quit\n");
+        System.out.println("enter a choice");
+        int ch=sc.nextInt();
+             switch(ch)
+             {
+                 case 1:
+                 System.out.println("Traction history");
+                 break;
+                 case 2:
+                 {
+                     System.out.println("enter pincode");
+                   int a=sc.nextInt();
+                  if(a==pincode)
+                  {
+                     System.out.println("enter the amount to withdraw");
+                     int withdraw=sc.nextInt();
+                     if(withdraw>balance)
+                     {
+                         System.out.println("insufficient balance");
+                     }
+                     else
+                     {
+                        
+                    System.out.println(withdraw+"rs successfully withdraw");
+                     }
+                 }
+                 else
+                 {
+                     System.out.println("wrong pincode");
+                 }
+                 break;
+             }
+             case 3:
+                 {
+                     System.out.println("enter pincode");
+                     int a=sc.nextInt();
+                    if(a==pincode) 
+                    {
+                        System.out.println("enter dposite amount");
+                        int deposite=sc.nextInt();
+                        balance=balance+deposite;
+                        System.out.println(balance+" is current balance");
+                    }
+                    else
+                    {
+                        System.out.println("wrong pincode");
+                    }
+                    break;
+                 }
+                 case 4:
+               {
+                System.out.println("enter account number to transfer money");
+                String accountnumber=sc.next();
+                System.out.println("enter transfer money");
+                int transfer=sc.nextInt();
+                if(balance<transfer)
+                {
+                    System.out.println("insufficient balance");
+                }
+                else
+                {
+                    System.out.println("enter pincode");
+                    int a=sc.nextInt();
+                    if(a==pincode)
+                    {
+                        System.out.println(transfer+"rs is transfered");
+                        balance=balance-transfer;
+                        System.out.println("current balance is"+balance);
+                    }
+                    else
+                    {
+                        System.out.println("incorrect pincode");
+                    }
+                }
+               break;
+             }
+             case 5:
+            {
+                
+               System.out.println("Quit"); 
+               break;
+            }
+        }//switch
+        if(ch==5)
+        break;
+    }//loop 
+    
+}
+}
